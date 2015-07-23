@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个人笔记管理</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="http://cdn.bootcss.com/showdown/1.1.0/showdown.min.js"></script>
+	<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/toolfunctions.js"></script>
+	<script type="text/javascript" src="js/javascript.js"></script>
+</head>
+<body>
+	<p id="logo">Cool Note</p>
+	<div id="notebook-div">
+		<h1>Notebook</h1>
+		<div>
+			<ul id="notebook-list">
+			</ul>
+			<button id="add-notebook" class="iconfont">&#xe604;</button>
+			<button id="del-notebook" class="iconfont">&#xe603;</button>
+		</div>
+	</div>
+	<div id="note-div">
+		<h1>Note</h1>
+		<button id="add-note" class="iconfont">&#xe605;</button>
+		<ul id="note-list">
+		</ul>
+	</div>
+	<div id="content-div">
+		<h1 id="note-title"></h1>
+		<button id="note-edit-button" class="iconfont">&#xe600;</button>
+		<div id="content"></div>
+	</div>
+	<div id="content-edit-div">
+		<h1><input type="text" placeholder="请输入标题"></h1>
+		<hr>
+		<textarea id="content-edit-textarea" placeholder="笔记内容"></textarea>
+		<button id="content-edit-ok" class="iconfont">&#xe601;</button>
+		<button id="content-edit-cancel" class="iconfont">&#xe602;</button>
+	</div>
+</body>
+</html>
