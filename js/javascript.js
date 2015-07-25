@@ -52,7 +52,7 @@ $(function() {
 });
 
 function readData() {
-	notebookTemp = localStorage.getItem("notebook") || '{}';
+	notebookTemp = localStorage.getItem("notebook") || '{"tGyU30NP":{"notebookname":"默认","notelist":{}}}';
 	notebook = JSON.parse(notebookTemp);
 }
 
