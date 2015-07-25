@@ -52,7 +52,7 @@ $(function() {
 });
 
 function readData() {
-	notebookTemp = localStorage.getItem("notebook") || '{"tGyU30NP":{"notebookname":"默认","notelist":{}}}';
+	notebookTemp = localStorage.getItem("notebook") || '{"default_":{"notebookname":"默认","notelist":{}}}';
 	notebook = JSON.parse(notebookTemp);
 }
 
@@ -115,6 +115,10 @@ function init() {
 
 	// 删除笔记本
 	$("#del-notebook").click(function() {
+		if (currentNoteBookId === "default_") {
+			alert("无法删除“默认”笔记本！");
+			return;
+		}
 		if (confirm('确定删除“' + notebook[currentNoteBookId].notebookname + "”笔记本？")) {
 			delete notebook[currentNoteBookId];
 		}
