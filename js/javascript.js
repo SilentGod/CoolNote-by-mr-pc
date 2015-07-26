@@ -118,6 +118,12 @@ function init() {
 		}
 		if (confirm('确定删除“' + notebook[currentNoteBookId].notebookname + "”笔记本？")) {
 			delete notebook[currentNoteBookId];
+			// 在删除笔记本后，获取第一个笔记本的ID，设为当前笔记本
+			// todo: 寻找 其他的获取“对象的第一个属性的key”的方法
+			for(var i in notebook){
+				currentNoteBookId = i;
+				break;
+			}
 		}
 		saveData();
 		showNotebook();
@@ -249,11 +255,14 @@ function showNoteList() {
 		showContent();
 	});
 
+
+    // 按钮：删除笔记
 	$(".note-del-button").click(function(e) {
 		var this_id = $(this).parent()[0].id;
 		if (confirm("删除笔记：" + notebook[currentNoteBookId].notelist[this_id].title + "？")) {
 			delete notebook[currentNoteBookId].notelist[this_id];
 			showNoteList();
+			showNotebook();
 			saveData();
 		}
 		stopBubble(e);

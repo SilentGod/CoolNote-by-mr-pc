@@ -4,6 +4,18 @@ Note
 Task: [ife/ria_qihang_01.md at master · baidu-ife/ife](https://github.com/baidu-ife/ife/blob/master/2015_summer/task/ria_qihang_01.md)
 
 
+### Todo：
+
+1. 笔记内容区域的 浮动实现：标题栏高度可变、内容区随之变化
+2. 笔记内容区域的宽度超出问题：单行代码过长时出现
+3. 浮动（float）与定位（position）区别及使用
+4. note-del-button按钮问题
+5. 笔记所在的 笔记本 改变
+6. 回收站
+7. 笔记本 删除、重命名
+8. 笔记 标签
+9. 大量笔记情况下，笔记列表的加载显示
+
 ### 疑问：
 
 1. 全局变量颜色
@@ -28,19 +40,8 @@ Task: [ife/ria_qihang_01.md at master · baidu-ife/ife](https://github.com/baidu
 - [字符值引用 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh/%E5%AD%97%E7%AC%A6%E5%80%BC%E5%BC%95%E7%94%A8)
 - [Unicode与JavaScript详解 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2014/12/unicode.html)
 - [字符编码 unicode 及其在javascript 中的使用 - ecalf - 博客园](http://www.cnblogs.com/ecalf/archive/2012/09/04/unicode.html)
-
-
-### Todo：
-
-1. 笔记内容区域的 浮动实现：标题栏高度可变、内容区随之变化
-2. 笔记内容区域的宽度超出问题：单行代码过长时出现
-3. 浮动（float）与定位（position）区别及使用
-4. note-del-button按钮问题
-5. 笔记所在的 笔记本 改变
-6. 回收站
-7. 笔记本 删除、重命名
-8. 笔记 标签
-9. 大量笔记情况下，笔记列表的加载显示
+4. BUG: 删除笔记本后的 当前笔记本 问题
+    获取第一个笔记本的ID，设为当前笔记本的ID
 
 
 ### 作品筛选参考：
