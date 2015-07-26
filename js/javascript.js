@@ -34,14 +34,11 @@
 };
 */
 
+// todo: add close button
 // todo: 加入 笔记本选择 功能
-// todo: 添加分类按钮
-// todo: 删除分类按钮
-// todo: 新建笔记按钮
-// todo: 编辑笔记按钮
 
 var notebook = {};
-var converter = new showdown.Converter();
+// var converter = new showdown.Converter();
 var currentNoteBookId;
 var currentNoteId;
 var myDate = new Date();
@@ -127,7 +124,13 @@ function init() {
 		showNoteList();
 	});
 
+	$("#note-close-button").click(function() {
+		$("#content-div").hide();
+	});
+
+
 }
+
 
 
 // 编辑笔记
@@ -195,10 +198,15 @@ function showNotebook() {
 // 显示笔记内容
 function showContent() {
 	$("#content-div").show();
-	var notetitle = notebook [currentNoteBookId].notelist[currentNoteId].title;
+	var notetitle = notebook[currentNoteBookId].notelist[currentNoteId].title;
 	$("#note-title").text(notetitle);
 	// $("#note-title").text(notetitle.substr(0,20) + ((notetitle.length > 20) ? '...' : ''));
-	$("#content").html(converter.makeHtml(notebook[currentNoteBookId].notelist[currentNoteId].content));
+	// $("#content").html(converter.makeHtml(notebook[currentNoteBookId].notelist[currentNoteId].content));
+	$("#content").html(marked(notebook[currentNoteBookId].notelist[currentNoteId].content));
+	// code highlight init
+	$('pre code').each(function(i, block) {
+		hljs.highlightBlock(block);
+	});
 }
 
 
@@ -220,14 +228,17 @@ function showNoteList() {
 		var noteLiElement = document.createElement("li");
 		var noteH2Element = document.createElement("H2");
 		var notePElement = document.createElement("P");
+		var buttonElement = document.createElement("button");
 
 		noteH2Element.innerText = notebook[currentNoteBookId].notelist[noteindex].title;
 		// todo: 显示内容摘要
 		// notePElement.innerText = converter.makeHtml(notebook[currentNoteBookId].notelist[noteindex].content);
 		notePElement.innerText = notebook[currentNoteBookId].notelist[noteindex].content.replace(/\n/, ' ').substr(0, 60);
-
+		buttonElement.innerText = "\ue603";
+		buttonElement.className = "iconfont note-del-button";
 		noteLiElement.appendChild(noteH2Element);
 		noteLiElement.appendChild(notePElement);
+		noteLiElement.appendChild(buttonElement);
 		noteLiElement.id = noteindex;
 		notelist.append(noteLiElement);
 	}
@@ -236,5 +247,16 @@ function showNoteList() {
 		this.className = 'current';
 		currentNoteId = this.id;
 		showContent();
+	});
+
+	$(".note-del-button").click(function(e) {
+		var this_id = $(this).parent()[0].id;
+		if (confirm("删除笔记：" + notebook[currentNoteBookId].notelist[this_id].title + "？")) {
+			delete notebook[currentNoteBookId].notelist[this_id];
+			showNoteList();
+			saveData();
+		}
+		stopBubble(e);
+
 	});
 }
