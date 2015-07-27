@@ -34,12 +34,11 @@
 };
 */
 
-// todo: add close button
 // todo: 加入 笔记本选择 功能
-
+// todo: 笔记回收站中的 还原机制
 
 var notebook = {};
-// var converter = new showdown.Converter();
+var recycle = {};
 var currentNoteBookId;
 var currentNoteId;
 var myDate = new Date();
@@ -111,8 +110,18 @@ function init() {
 		$("#content-edit-textarea").val(notebook[currentNoteBookId].notelist[currentNoteId].content);
 	});
 
+	// todo: 弹出悬浮层，增加可编辑的笔记本信息
+	$("#notebook-edit-button").click(function () {
+		var notebooknewname = prompt("笔记名称为：");
+		if (notebooknewname && notebooknewname != " ") {
+			notebook[currentNoteBookId].notebookname = notebooknewname;
+			saveData();
+			showNotebook();
+		}
+	});
+
 	// 删除笔记本
-	$("#del-notebook").click(function() {
+	$("#notebook-del-button").click(function() {
 		if (currentNoteBookId === "default_") {
 			alert("无法删除“默认”笔记本！");
 			return;
@@ -137,8 +146,6 @@ function init() {
 
 
 }
-
-
 
 // 编辑笔记
 function editNote() {
@@ -189,7 +196,16 @@ function showNotebook() {
 	for (var notebookindex in notebook) {
 		var notebookLiElement = document.createElement("li");
 		var notebookNode = document.createTextNode(notebook[notebookindex].notebookname + ' (' + count(notebook[notebookindex].notelist) + ')');
+		// var notebookEditButtonElement = document.createElement("button");
+		// var notebookDelButtonElement = document.createElement("button");
+		// notebookEditButtonElement.innerText = "\ue61d";
+		// notebookEditButtonElement.className = "iconfont notebook-edit-button";
+		// notebookDelButtonElement.innerText = "\ue621";
+		// notebookDelButtonElement.className = "iconfont notebook-del-button";
+
 		notebookLiElement.appendChild(notebookNode);
+		// notebookLiElement.appendChild(notebookEditButtonElement);
+		// notebookLiElement.appendChild(notebookDelButtonElement);
 		notebookLiElement.id = notebookindex;
 		notebookLiElement.onclick = switchNoteBook;
 		notebooklistUl.append(notebookLiElement);
@@ -240,7 +256,7 @@ function showNoteList() {
 		noteH2Element.innerText = notebook[currentNoteBookId].notelist[noteindex].title;
 		// todo: 显示内容摘要
 		// notePElement.innerText = converter.makeHtml(notebook[currentNoteBookId].notelist[noteindex].content);
-		notePElement.innerText = notebook[currentNoteBookId].notelist[noteindex].content.replace(/\n/, ' ').substr(0, 60);
+		notePElement.innerText = notebook[currentNoteBookId].notelist[noteindex].content.replace(/\n+/, '   ').substr(0, 60);
 		buttonElement.innerText = "\ue603";
 		buttonElement.className = "iconfont note-del-button";
 		noteLiElement.appendChild(noteH2Element);
