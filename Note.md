@@ -1,7 +1,10 @@
 Note
 ===
 
-Task: [ife/ria_qihang_01.md at master · baidu-ife/ife](https://github.com/baidu-ife/ife/blob/master/2015_summer/task/ria_qihang_01.md)
+- [2015暑期训练营RIA启航任务一提交 · Issue #839 · baidu-ife/ife](https://github.com/baidu-ife/ife/issues/839)
+- [ife/ria_qihang_01.md at master · baidu-ife/ife](https://github.com/baidu-ife/ife/blob/master/2015_summer/task/ria_qihang_01.md)
+- [ife/ria_qihang_02.md at master · baidu-ife/ife](https://github.com/baidu-ife/ife/blob/master/2015_summer/task/ria_qihang_02.md)
+- [ife/ria_qihang_03.md at master · baidu-ife/ife](https://github.com/baidu-ife/ife/blob/master/2015_summer/task/ria_qihang_03.md)
 
 
 ### Todo：
@@ -15,6 +18,9 @@ Task: [ife/ria_qihang_01.md at master · baidu-ife/ife](https://github.com/baidu
 7. 笔记本 删除、重命名
 8. 笔记 标签
 9. 大量笔记情况下，笔记列表的加载显示
+10. 研究indexeddb：[IndexedDB：浏览器端数据库 -- JavaScript 标准参考教程（alpha）](http://javascript.ruanyifeng.com/bom/indexeddb.html)
+
+
 
 ### 疑问：
 
@@ -48,4 +54,6 @@ Task: [ife/ria_qihang_01.md at master · baidu-ife/ife](https://github.com/baidu
 - [KimojiMarkdown](https://ife-kimoji.github.io/KimojiMarkdown/html/)
 - [Note Manage](https://linkmyth.github.io/)
 - [笔记本](https://skybit.github.io/task01/#)
+
+
 
